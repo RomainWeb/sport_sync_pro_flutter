@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sport_sync_pro_flutter/components/bottom_nav_bar.dart';
+import 'package:sport_sync_pro_flutter/utils/colors.dart';
 
 import 'cart_page.dart';
 import 'shop_page.dart';
@@ -29,71 +30,72 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
-      bottomNavigationBar: MyBottomNavBar(
-        onTabChange: (index) => navigationBottomBar(index),
-      ),
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        leading: Builder(
-          builder: (context) {
-            return IconButton(
-              icon: Icon(
-                Icons.menu,
-                color: Colors.grey[800],
-              ),
-              onPressed: () => Scaffold.of(context).openDrawer(),
-            );
-          }
+      body: Container(
+        constraints: const BoxConstraints.expand(),
+        decoration: const BoxDecoration(
+          color: AppColors.primaryColor,
+          image: DecorationImage(
+              image: AssetImage("assets/images/background.png"),
+              fit: BoxFit.cover),
         ),
-      ),
-      drawer: Drawer(
-        backgroundColor: Colors.grey[900],
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Column(
-              children: [
-                DrawerHeader(
-                  child: Image.asset(
-                    'assets/images/logo.png',
-                    color: Colors.grey[50]
-                  )
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25),
-                  child: Divider(
-                    color: Colors.grey[50],
-                  ),
-                ),
-                const Padding(
-                  padding: EdgeInsets.only(left: 25),
-                  child: ListTile(
-                    leading: Icon(Icons.home, color: Colors.white),
-                    title: Text('Home', style: TextStyle(color: Colors.white)),
-                  ),
-                ),
-                const Padding(
-                  padding: EdgeInsets.only(left: 25),
-                  child: ListTile(
-                    leading: Icon(Icons.info, color: Colors.white),
-                    title: Text('Informations', style: TextStyle(color: Colors.white)),
-                  ),
-                ),
-              ],
-            ),
-            const Padding(
-              padding: EdgeInsets.only(left: 25, bottom: 25),
-              child: ListTile(
-                leading: Icon(Icons.logout, color: Colors.white),
-                title: Text('Logout', style: TextStyle(color: Colors.white)),
+            Container(
+              height: 500,
+              alignment: Alignment.topCenter,
+              decoration: BoxDecoration(
+                color: Colors.grey[100],
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(30),
+                  topRight: Radius.circular(30)
+                )
               ),
-            )
+              child: Padding(
+                padding: const EdgeInsets.all(30.0),
+                child: Column(
+                  children: [
+                    Image.asset('assets/images/logo.png', height: 100,),
+                    const Spacer(),
+                    const Text(
+                      'Non-Contact Deliveries',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: AppColors.primaryTextColor,
+                        fontSize: 34,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const Spacer(),
+                    const Text(
+                      'When placing an order, select the option “Contactless delivery” and the courier will leave your order at the door.',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: AppColors.primaryTextColorLight,
+                        fontSize: 16,
+                      ),
+                    ),
+                    const Spacer(),
+                    SizedBox(
+                      width: double.infinity,
+                      child: ElevatedButton(
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all<Color>(AppColors.secondaryColor),
+                          padding: MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.symmetric(horizontal: 32, vertical: 16)),
+                        ),
+                        onPressed: (){},
+                        child: const Text('ORDER NOW'),
+                      ),
+                    ),
+                  ],
+                ),
+              )
+            ),
           ],
         ),
       ),
-      body: _pages[_selectedIndex],
     );
   }
 }
