@@ -1,9 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:sport_sync_pro_flutter/components/bottom_nav_bar.dart';
+import 'package:sport_sync_pro_flutter/pages/auth/login_page.dart';
 import 'package:sport_sync_pro_flutter/utils/colors.dart';
-
-import 'cart_page.dart';
-import 'shop_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -23,8 +22,6 @@ class _HomePageState extends State<HomePage> {
   }
 
   final List<Widget> _pages = [
-    const ShopPage(),
-    const CartPage(),
   ];
 
   @override
@@ -63,7 +60,7 @@ class _HomePageState extends State<HomePage> {
                       'Non-Contact Deliveries',
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        color: AppColors.primaryTextColor,
+                        color: AppColors.primaryColorLighter,
                         fontSize: 34,
                         fontWeight: FontWeight.bold,
                       ),
@@ -73,7 +70,7 @@ class _HomePageState extends State<HomePage> {
                       'When placing an order, select the option “Contactless delivery” and the courier will leave your order at the door.',
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        color: AppColors.primaryTextColorLight,
+                        color: AppColors.primaryColorLighter,
                         fontSize: 16,
                       ),
                     ),
@@ -83,10 +80,15 @@ class _HomePageState extends State<HomePage> {
                       child: ElevatedButton(
                         style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all<Color>(AppColors.secondaryColor),
-                          padding: MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.symmetric(horizontal: 32, vertical: 16)),
+                          padding: MaterialStateProperty.all<EdgeInsets>(
+                            const EdgeInsets.symmetric(
+                              horizontal: 32,
+                              vertical: 16
+                            )
+                          ),
                         ),
-                        onPressed: (){},
-                        child: const Text('ORDER NOW'),
+                        onPressed: () => FirebaseAuth.instance.signOut(),
+                        child: const Text('LOG OUT'),
                       ),
                     ),
                   ],

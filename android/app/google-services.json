@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "431657274502",
+    "firebase_url": "https://sport-sync-pro-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "sport-sync-pro",
+    "storage_bucket": "sport-sync-pro.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:431657274502:android:9685e24706842d763bd507",
+        "android_client_info": {
+          "package_name": "com.example.sport_sync_pro_flutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "431657274502-dp1bua6jgjnqc5ud87geob6hj4dobdgo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBc6GkGLSVNtpFVSEg_W7fqpgNlKU6ZnGA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "431657274502-dp1bua6jgjnqc5ud87geob6hj4dobdgo.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "431657274502-5hi8j4hrod651c4u4j002st2pf04fs8s.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.sportSyncProFlutter"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
