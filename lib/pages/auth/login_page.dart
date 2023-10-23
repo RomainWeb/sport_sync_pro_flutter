@@ -2,6 +2,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:sport_sync_pro_flutter/utils/colors.dart';
 
+
+import 'register_page.dart';
+
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
@@ -25,6 +28,23 @@ class _LoginPageState extends State<LoginPage> {
         print(e);
       }
     }
+
+    // Future<UserCredential> signInWithGoogle() async {
+    //   // Trigger the authentication flow
+    //   final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+    //
+    //   // Obtain the auth details from the request
+    //   final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
+    //
+    //   // Create a new credential
+    //   final credential = GoogleAuthProvider.credential(
+    //     accessToken: googleAuth?.accessToken,
+    //     idToken: googleAuth?.idToken,
+    //   );
+    //
+    //   // Once signed in, return the UserCredential
+    //   return await FirebaseAuth.instance.signInWithCredential(credential);
+    // }
 
     @override
     void dispose() {
@@ -52,7 +72,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 Image.asset(
                   'assets/images/login-illustration.jpg',
-                  width: 280,
+                  width: 220,
                 ),
                 const Row(
                   children: [
@@ -79,13 +99,13 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderSide: const BorderSide(color: Colors.white),
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(12),
                     ),
                     focusedBorder: OutlineInputBorder(
                         borderSide: const BorderSide(
                             color: AppColors.primaryColor
                         ),
-                        borderRadius: BorderRadius.circular(20)
+                        borderRadius: BorderRadius.circular(12)
                     ),
                     border: InputBorder.none,
                     hintText: 'Enter your email',
@@ -126,11 +146,11 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderSide: const BorderSide(color: Colors.white),
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(12),
                     ),
                     focusedBorder: OutlineInputBorder(
                         borderSide: const BorderSide(color: AppColors.primaryColor),
-                        borderRadius: BorderRadius.circular(20)
+                        borderRadius: BorderRadius.circular(12)
                     ),
                     border: InputBorder.none,
                     hintText: 'Enter your password',
@@ -140,13 +160,17 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 const SizedBox(height: 30),
+                IconButton(
+                  onPressed: (){},
+                  icon: const Icon(Icons.house)
+                ),
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
                     style: ButtonStyle(
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                         RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20)
+                          borderRadius: BorderRadius.circular(12)
                         )
                       ),
                       backgroundColor: MaterialStateProperty.all<Color>(AppColors.secondaryColor),
@@ -154,6 +178,30 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     onPressed: login,
                     child: const Text('LOGIN'),
+                  ),
+                ),
+                const SizedBox(height: 16),
+                SizedBox(
+                  width: double.infinity,
+                  child: TextButton(
+                    style: ButtonStyle(
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12)
+                          )
+                      ),
+                      padding: MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.symmetric(horizontal: 32, vertical: 16)),
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const RegisterPage()),
+                      );
+                    },
+                    child: const Text(
+                      'REGISTER',
+                      style: TextStyle(color: AppColors.secondaryColor),
+                    ),
                   ),
                 ),
               ],
