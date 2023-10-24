@@ -1,8 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:sport_sync_pro_flutter/utils/colors.dart';
+import 'package:sport_sync_pro_flutter/domain/utils/colors.dart';
 
-
+import '../../utils/auth.dart';
 import 'register_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -28,23 +29,6 @@ class _LoginPageState extends State<LoginPage> {
         print(e);
       }
     }
-
-    // Future<UserCredential> signInWithGoogle() async {
-    //   // Trigger the authentication flow
-    //   final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-    //
-    //   // Obtain the auth details from the request
-    //   final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
-    //
-    //   // Create a new credential
-    //   final credential = GoogleAuthProvider.credential(
-    //     accessToken: googleAuth?.accessToken,
-    //     idToken: googleAuth?.idToken,
-    //   );
-    //
-    //   // Once signed in, return the UserCredential
-    //   return await FirebaseAuth.instance.signInWithCredential(credential);
-    // }
 
     @override
     void dispose() {
@@ -159,9 +143,11 @@ class _LoginPageState extends State<LoginPage> {
                     filled: true,
                   ),
                 ),
-                const SizedBox(height: 30),
+                const SizedBox(height: 16),
                 IconButton(
-                  onPressed: (){},
+                  onPressed: () async {
+                    await Authentication.signInWithGoogle(context: context);
+                  },
                   icon: const Icon(Icons.house)
                 ),
                 SizedBox(
@@ -181,29 +167,30 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 const SizedBox(height: 16),
-                SizedBox(
-                  width: double.infinity,
-                  child: TextButton(
-                    style: ButtonStyle(
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12)
-                          )
+                RichText(
+                  text: TextSpan(
+                    text: 'dont\'t have an account? ',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w300,
+                      color: Colors.grey.shade400,
+                      fontSize: 16
+                    ),
+                    children: <TextSpan>[
+                      TextSpan(
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () => Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const RegisterPage()),
+                            ),
+                        text: 'Sign up',
+                          style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: AppColors.primaryColor,
+                        )
                       ),
-                      padding: MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.symmetric(horizontal: 32, vertical: 16)),
-                    ),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => const RegisterPage()),
-                      );
-                    },
-                    child: const Text(
-                      'REGISTER',
-                      style: TextStyle(color: AppColors.secondaryColor),
-                    ),
+                    ],
                   ),
-                ),
+                )
               ],
             ),
           ),

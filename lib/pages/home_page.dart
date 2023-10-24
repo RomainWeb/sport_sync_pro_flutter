@@ -1,8 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:sport_sync_pro_flutter/components/bottom_nav_bar.dart';
-import 'package:sport_sync_pro_flutter/pages/auth/login_page.dart';
-import 'package:sport_sync_pro_flutter/utils/colors.dart';
+import 'package:sport_sync_pro_flutter/domain/utils/colors.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:sport_sync_pro_flutter/pages/main_page.dart';
-import 'firebase_options.dart';
+import 'domain/config/firebase_options.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 void main() async {
