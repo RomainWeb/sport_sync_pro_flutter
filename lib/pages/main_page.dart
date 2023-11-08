@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:sport_sync_pro_flutter/pages/auth/login_page.dart';
+import 'package:sport_sync_pro_flutter/pages/auth/authentication_page.dart';
 import 'package:sport_sync_pro_flutter/pages/home_page.dart';
 
 class MainPage extends StatelessWidget {
@@ -15,7 +15,7 @@ class MainPage extends StatelessWidget {
           if (snapshot.hasData) {
             return const HomePage();
           } else {
-            return const LoginPage();
+            return const AuthenticationPage();
           }
         },
       ),

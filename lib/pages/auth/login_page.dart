@@ -2,8 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:sport_sync_pro_flutter/domain/utils/colors.dart';
-
-import '../../utils/auth.dart';
 import 'register_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -144,12 +142,15 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 const SizedBox(height: 16),
-                IconButton(
-                  onPressed: () async {
-                    await Authentication.signInWithGoogle(context: context);
-                  },
-                  icon: const Icon(Icons.house)
-                ),
+                // IconButton(
+                //   onPressed: () async {
+                //     await Authentication.signInWithGoogle(context: context);
+                //   },
+                //   icon: const FaIcon(
+                //     FontAwesomeIcons.googlePlusG,
+                //     color: Colors.redAccent,
+                //   )
+                // ),
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
