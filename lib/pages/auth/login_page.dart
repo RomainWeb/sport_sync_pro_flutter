@@ -1,7 +1,9 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:sport_sync_pro_flutter/domain/utils/colors.dart';
+import '../../router.dart';
 import 'register_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -179,10 +181,7 @@ class _LoginPageState extends State<LoginPage> {
                     children: <TextSpan>[
                       TextSpan(
                           recognizer: TapGestureRecognizer()
-                            ..onTap = () => Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => const RegisterPage()),
-                            ),
+                            ..onTap = () => AutoRouter.of(context).push(const AuthenticationRoute()),
                         text: 'Sign up',
                           style: const TextStyle(
                             fontWeight: FontWeight.bold,
