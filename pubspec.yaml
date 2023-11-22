@@ -45,6 +45,7 @@ dependencies:
   date_picker_timeline: ^1.2.5
   url_launcher: ^6.2.1
   auto_route: ^7.2.0
+  json_annotation: ^4.8.0
 
 
 dev_dependencies:
@@ -52,6 +53,7 @@ dev_dependencies:
     sdk: flutter
   auto_route_generator: ^7.1.1
   build_runner: ^2.4.4
+  json_serializable: ^6.6.0
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

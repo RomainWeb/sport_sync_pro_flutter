@@ -4,13 +4,11 @@ import 'package:sport_sync_pro_flutter/domain/utils/colors.dart';
 import 'package:sport_sync_pro_flutter/pages/profile/user_profile_page.dart';
 
 class TopNavBar extends StatelessWidget implements PreferredSizeWidget {
-  final bool hasLeading;
-  void Function()? leadingOnPressed;
+  final String title;
 
   TopNavBar({
     super.key,
-    this.hasLeading = false,
-    this.leadingOnPressed,
+    this.title = '',
   });
 
 
@@ -20,13 +18,7 @@ class TopNavBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      leading: hasLeading ? IconButton(
-        icon: const Icon(
-            Icons.arrow_back,
-            color: AppColors.primaryColorDarker
-        ),
-        onPressed: () => leadingOnPressed!(),
-      ) : null,
+      title: Text(title),
       backgroundColor: AppColors.primaryColorDarker,
       elevation: 0,
       actions: [

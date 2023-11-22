@@ -39,6 +39,16 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const UserProfilePage(),
       );
     },
+    UsersGroupDetailsRoute.name: (routeData) {
+      final pathParams = routeData.inheritedPathParams;
+      final args = routeData.argsAs<UsersGroupDetailsRouteArgs>(
+          orElse: () =>
+              UsersGroupDetailsRouteArgs(bookId: pathParams.getString('id')));
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: UsersGroupDetailsPage(bookId: args.bookId),
+      );
+    },
   };
 }
 
@@ -96,4 +106,34 @@ class UserProfileRoute extends PageRouteInfo<void> {
   static const String name = 'UserProfileRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [UsersGroupDetailsPage]
+class UsersGroupDetailsRoute extends PageRouteInfo<UsersGroupDetailsRouteArgs> {
+  UsersGroupDetailsRoute({
+    required String bookId,
+    List<PageRouteInfo>? children,
+  }) : super(
+          UsersGroupDetailsRoute.name,
+          args: UsersGroupDetailsRouteArgs(bookId: bookId),
+          rawPathParams: {'id': bookId},
+          initialChildren: children,
+        );
+
+  static const String name = 'UsersGroupDetailsRoute';
+
+  static const PageInfo<UsersGroupDetailsRouteArgs> page =
+      PageInfo<UsersGroupDetailsRouteArgs>(name);
+}
+
+class UsersGroupDetailsRouteArgs {
+  const UsersGroupDetailsRouteArgs({required this.bookId});
+
+  final String bookId;
+
+  @override
+  String toString() {
+    return 'UsersGroupDetailsRouteArgs{bookId: $bookId}';
+  }
 }

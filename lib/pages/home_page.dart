@@ -1,7 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:sport_sync_pro_flutter/pages/group/users_group_page.dart';
 
 import '../components/bottom_nav_bar.dart';
+import '../components/top_nav_bar.dart';
 import 'calendar/calendar_home_page.dart';
 
 @RoutePage()
@@ -23,7 +25,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   final List<Widget> _pages = [
-    const HomeCalendarPage(),
+    const UsersGroupPage(),
     Text('page 2'),
     Text('page 3')
   ];
@@ -31,6 +33,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: TopNavBar(),
       body: Center(
         child: _pages.elementAt(_selectedIndex),
       ),

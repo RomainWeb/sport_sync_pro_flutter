@@ -8,21 +8,18 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+class MyApp extends StatelessWidget {
+  final appRouter = AppRouter();
 
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
+  MyApp({super.key});
 
-class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    final appRouter = AppRouter();
+
 
     return  MaterialApp.router(
       routerDelegate: appRouter.delegate(),
